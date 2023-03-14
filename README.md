@@ -1,6 +1,15 @@
 # The Hangman
 
-# 🌟 Initialization
+## :construction_worker_woman: Prerequisites
+
+Be sure to have docker and docker compose installed, check with
+
+```
+docker --version
+docker-compose --version
+```
+
+## 🌟 Initialization
 
 Create a new directory, open the terminal and run :
 
@@ -17,7 +26,7 @@ docker pull mongo
 docker pull python
 ```
 
-# 🚀 App launch
+## 🚀 App launch
 
 Thanks to docker compose, you only have to run one command to lanch the application : 
 
