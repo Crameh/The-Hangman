@@ -5,7 +5,7 @@
 Create a new directory, open the terminal and run :
 
 ```
-git clone <https://github.com/Crameh/TD7A4.git>
+git clone <https://github.com/Crameh/The-Hangman.git>
 ```
 
 ## Pull images
