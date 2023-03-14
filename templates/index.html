@@ -1,0 +1,23 @@
+<!--  how to use css in python_ flask-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--  Load CSS in Flask with html-->
+    <link rel="stylesheet" href='/staticFiles/main.css' />
+
+    <!--  Load JavaScript in Flask with html-->
+    <script type="text/javascript" src="/staticFiles/main.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <span id="displayedWord"></span>
+    <div class="game">
+        <img id="penduStepImg" src="https://cdn.discordapp.com/attachments/689829033898279147/1085271543199842404/0.png" alt="penduStep">
+        <div id="letters"> </div>
+    </div>
+    <span id="gameStatus"> </span>
+    <div id="history"> WIN : <span id="win"> {{win}} </span> | LOSE : <span id="lose"> {{lose}} </span></div>
+</div>
+</body>
+</html>

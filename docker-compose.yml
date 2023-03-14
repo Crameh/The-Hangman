@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    networks:
+      - network_project
+    volumes:
+      - word_volume:/data/db
+  app-flask:
+    build: .
+    ports:
+      - "3010:5000"
+    networks:
+      - network_project
+    volumes:
+      - ./bindFiles:/app/data
+
+networks:
+  network_project:
+volumes:
+  word_volume:
