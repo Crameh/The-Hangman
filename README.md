@@ -1,6 +1,6 @@
 # The Hangman
 
-# Initialization
+# 🌟 Initialization
 
 Create a new directory, open the terminal and run :
 
@@ -8,7 +8,7 @@ Create a new directory, open the terminal and run :
 git clone <https://github.com/Crameh/The-Hangman.git>
 ```
 
-## Pull images
+## 🪄 Pull images
 
 You have to install two images, one for mongo and the other for python :
 
@@ -17,7 +17,7 @@ docker pull mongo
 docker pull python
 ```
 
-## Create a network
+## 🌉 Create a network
 
 We will create a network of type ‘bridge’ :
 
@@ -25,7 +25,7 @@ We will create a network of type ‘bridge’ :
 docker network create --driver bridge ${your_network_name}
 ```
 
-## Create a volume
+## 📦 Create a volume
 
 We will create our volume for our mongo database
 
@@ -33,9 +33,9 @@ We will create our volume for our mongo database
 docker volume create ${your_volume_name}
 ```
 
-# App launch
+# 🚀 App launch
 
-## Mongo container
+## 🐍 Mongo container
 
 We now have to run the mongo container
 
@@ -53,7 +53,7 @@ use films
 db.favoris.insertMany([{"name": "Spider man"}, {"name": "Super man"}])
 ```
 
-## Flask container
+## ⚓ Flask container
 
 We now just have to build our image and run the container associated to it
 
