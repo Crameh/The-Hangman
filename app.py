@@ -10,16 +10,40 @@ from pymongo import MongoClient
 #app = Flask(__name__, template_folder='templateFiles', static_folder='staticFiles')
 app = Flask(__name__, static_folder='staticFiles', template_folder='templates')
 
+client = MongoClient("mongodb://mongodb:27017/")
+db = client.pendu_db
+collection = db.words
+if len(list(collection.find())) == 0:
+    db = client["pendu_db"]
+    collection = db["words"]
+    mylist= [
+        { "mot": "docker" },
+        { "mot": "koala" },
+        { "mot": "gaufre" },
+        { "mot": "container" },
+        { "mot": "pandemonium" },
+        { "mot": "daemon" },
+        { "mot": "localhost" },
+        { "mot": "image" },
+        { "mot": "electrique" },
+        { "mot": "pancake" },
+        { "mot": "proteine" },
+        { "mot": "machine" },
+        { "mot": "medicament" },
+        { "mot": "tapis" },
+        { "mot": "frites" },
+        { "mot": "crepe" },
+        { "mot": "harmonie" }
+    ]
+    collection.insert_many(mylist)
+
 @app.route('/')
 def index():
-    f = open("templates/bindFiles/history.txt", "r")
+    f = open("data/history.txt", "r")
     score = f.read().split(':')
     f.close()
     return render_template('index.html', win=score[0], lose=score[1])
 
-client = MongoClient("mongodb://mongodb:27017/")
-db = client.pendu_db
-collection = db.words
 @app.route('/wordList')
 def wordList():
    data = list(collection.find())
@@ -28,12 +52,12 @@ def wordList():
 
 @app.route('/changeScore')
 def addScore():
-    f = open("templates/bindFiles/history.txt", "r")
+    f = open("data/history.txt", "r")
     score = f.read().split(':')
     f.close()
     win = request.args.get('win', type = str)
     print(win)
-    f = open("templates/bindFiles/history.txt", "w")
+    f = open("data/history.txt", "w")
     f.write(str(int(score[0]) + 1) + ":" + score[1]) if (win == "true") else f.write(score[0] + ":" + str(int(score[1]) + 1))
     f.close()
     return jsonify(success=True)

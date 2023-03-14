@@ -13,7 +13,7 @@ services:
     networks:
       - network_project
     volumes:
-      - ./bindFiles:/app/data
+      - ./templates/bindFiles:/app/data
 
 networks:
   network_project:

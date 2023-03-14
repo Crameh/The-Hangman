@@ -17,14 +17,14 @@ document.addEventListener("DOMContentLoaded", function(event){
         let errors = -1;
         let img = document.getElementById("penduStepImg");
         const bankImg = [
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271543417950288/1.png",
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271543657005066/2.png",
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271543875125428/3.png",
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271544126787707/4.png",
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271544344870912/5.png",
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271544600740012/6.png",
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271544827236473/7.png",
-            "https://cdn.discordapp.com/attachments/689829033898279147/1085271545041125450/8.png"
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085306677764558908/1.png",
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085306677986869248/2.png",
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085304467798368317/3.png",
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085304468041629696/4.png",
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085306678209151086/5.png",
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085304468473651382/6.png",
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085306678662152314/7.png",
+            "https://cdn.discordapp.com/attachments/1054107916786995281/1085306678871851038/8.png"
         ]
 
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event){
                 document.getElementById("gameStatus").innerHTML = "WIN !"
                 end = true;
                 fetch('/changeScore?win=' + true)
-                document.getElementById("win").innerHTML = (parseInt(document.getElementById("win").textContent) + 1).toString
+                document.getElementById("win").innerHTML = (parseInt(document.getElementById("win").textContent) + 1).toString()
             }
             if (errors >= bankImg.length - 1) {
                 document.getElementById("gameStatus").innerHTML = "LOST !"
@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function(event){
                 displayedWordSpan.classList.add("bad")
                 end = true;
                 fetch('/changeScore?win=' + false)
+                document.getElementById("lose").innerHTML = (parseInt(document.getElementById("lose").textContent) + 1).toString()
             }
             display();
         }, false);
@@ -72,4 +73,3 @@ document.addEventListener("DOMContentLoaded", function(event){
         .then(text => text.replaceAll('"', '').replaceAll('\n', '').replaceAll(' ', '').replace('[', '').replace(']', '').split(","))
         .then(data => main(data))
 });
-
