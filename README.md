@@ -28,7 +28,7 @@ docker pull python
 
 ## 🚀 App launch
 
-Thanks to docker compose, you only have to run one command to lanch the application : 
+Thanks to docker compose, you only have to run one command to launch the application : 
 
 ```
 docker compose up -d --build
